@@ -1,0 +1,38 @@
+.login-form{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 20px 20px;
+}
+.label-text{
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+.input-box{
+   padding: 10px;
+   border:3px solid black;
+}
+.button-container{
+    display: grid;
+    width: 100%;
+    place-content: center;
+}
+.forgot-tag{
+    padding: 0px;
+    margin: 0px;
+    text-align: end;
+}
+.forgot-password{
+    margin:0px;
+    /* cursor:pointer; */
+}
+.login-button{
+    padding: 5px 10px;
+    text-align: center;
+    border: 3px solid black;
+}
+.login-button:hover{
+    /* font-size: 15px; */
+    font-weight: bold;
+    box-shadow: 0px 9px 14px -6px rgba(0,0,0,0.75);
+    transition: all .4s ease-in-out; 
+}
