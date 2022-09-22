@@ -1,5 +1,7 @@
+import axios from 'axios';
 import { useFormik } from 'formik'
 import React from 'react'
+import instance from '../../API/api';
 import './Register.css'
 
 function Register() {
@@ -44,6 +46,16 @@ function Register() {
                 errors.verpassword = "Password does not match";
             }
             return errors;
+        },
+        onSubmit: async (values) => {
+            console.log(values);
+            try {
+                // const register = await axios.post('http://localhost:3001/register', values);
+                const register = await instance.post('/register', values);
+                console.log(register);
+            } catch (error) {
+                console.log(error);
+            }
         }
     })
     return (

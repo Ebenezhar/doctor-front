@@ -39,7 +39,8 @@ body{
     width:100%
 }
 .button-container{
-    width:80%
+    width:60%;
+    place-content: start;
 }
 .register-button{
     margin-top: 20px;
