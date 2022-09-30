@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useFormik } from 'formik'
 import React from 'react'
+import { Navigate, useNavigate } from 'react-router-dom';
 import instance from '../../API/api';
 import './Register.css'
 
-function Register() {
+function DoctorRegister() {
+    const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
             firstName: "",
@@ -50,9 +52,10 @@ function Register() {
         onSubmit: async (values) => {
             console.log(values);
             try {
-                // const register = await axios.post('http://localhost:3001/register', values);
-                const register = await instance.post('/register', values);
-                console.log(register);
+                console.log(values);
+                const register = await instance.post('/register/doctor', values);
+                alert(register.data.message);
+                navigate('/')
             } catch (error) {
                 console.log(error);
             }
@@ -134,13 +137,13 @@ function Register() {
                     <select className='select-box' id="gender" name="gender" onClick={formik.handleChange}>
                         <option id="gender" name="gender">
                         </option>
-                        <option id="gender" name="gender" value="male">
+                        <option id="gender" name="gender" value="Male">
                             Male
                         </option>
-                        <option id="gender" name="gender" value="female">
+                        <option id="gender" name="gender" value="Female">
                             Female
                         </option>
-                        <option id="gender" name="gender" value="other">
+                        <option id="gender" name="gender" value="Other">
                             Other
                         </option>
                     </select>
@@ -169,15 +172,66 @@ function Register() {
                     {formik.errors.verpassword ? <span style={{ color: "red" }}> {formik.errors.verpassword} </span> : null}
                 </div>
                 <div className='person-select-boxes'>
-                    <label className='label-text'>Register As</label>
+                    <label className='label-text'>Specialties</label>
                     <select className='select-box' name="identity" onClick={formik.handleChange}>
                         <option id="identity" name="identity">
                         </option>
-                        <option id="identity" name="identity" value="doctor">
-                            Doctor
+                        <option id="identity" name="identity" value="Dermatologist">
+                            Dermatologist
                         </option>
-                        <option id="identity" name="identity" value="user">
-                            User
+                        <option id="identity" name="identity" value="Pediatrician">
+                            Pediatrician
+                        </option>
+                        <option id="identity" name="identity" value="Radiologist">
+                            Radiologist
+                        </option>
+                        <option id="identity" name="identity" value="Dentist">
+                            Dentist
+                        </option>
+                        <option id="identity" name="identity" value="Anesthesiologist">
+                            Anesthesiologist
+                        </option>
+                        <option id="identity" name="identity" value="Cardiologist">
+                            Cardiologist
+                        </option>
+                        <option id="identity" name="identity" value="Psychiatrist">
+                            Psychiatrist
+                        </option>
+                        <option id="identity" name="identity" value="Oncologist">
+                            Oncologist
+                        </option>
+                        <option id="identity" name="identity" value="Gynecologist">
+                            Gynecologist
+                        </option>
+                        <option id="identity" name="identity" value="Neurologist">
+                            Neurologist
+                        </option>
+                        <option id="identity" name="identity" value="Ophthalmologist">
+                            Ophthalmologist
+                        </option>
+                        <option id="identity" name="identity" value="Obstetrician">
+                            Obstetrician
+                        </option>
+                        <option id="identity" name="identity" value="Podiatrist">
+                            Podiatrist
+                        </option>
+                        <option id="identity" name="identity" value="Anesthesiologist">
+                            Anesthesiologist
+                        </option>
+                        <option id="identity" name="identity" value="Physical Therapist">
+                            Physical Therapist
+                        </option>
+                        <option id="identity" name="identity" value="Allergist">
+                            Allergist
+                        </option>
+                        <option id="identity" name="identity" value="Naturopath">
+                            Naturopath
+                        </option>
+                        <option id="identity" name="identity" value="Chiropractor">
+                            Chiropractor
+                        </option>
+                        <option id="identity" name="identity" value="Occupational Therapist">
+                            Occupational Therapist
                         </option>
                     </select>
                 </div>
@@ -190,4 +244,4 @@ function Register() {
     )
 }
 
-export default Register
+export default DoctorRegister

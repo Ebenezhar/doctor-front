@@ -1,17 +1,19 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
+import DoctorSideBar from '../Side bar/DoctorSideBar'
 import './Portal.css'
 
-function Portal() {
+function DoctorPortal() {
     return (
         <div className='portal'>
             <Navbar />
-            <div>
+            <div className='portal-body'>
+                <DoctorSideBar />
                 <Outlet />
             </div>
         </div>
     )
 }
 
-export default Portal
+export default DoctorPortal

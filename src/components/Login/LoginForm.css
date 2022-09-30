@@ -11,9 +11,11 @@
    padding: 10px;
    border:3px solid black;
 }
-.button-container{
-    display: grid;
-    width: 100%;
+.button-container-box{
+    
+    padding: 0px 20px;
+    /* display: grid; */
+    width: 80%;
     place-content: center;
 }
 .forgot-tag{
@@ -26,6 +28,8 @@
     /* cursor:pointer; */
 }
 .login-button{
+    font-size: 18px;
+    width:100%;
     padding: 5px 10px;
     text-align: center;
     border: 3px solid black;
@@ -35,4 +39,22 @@
     font-weight: bold;
     box-shadow: 0px 9px 14px -6px rgba(0,0,0,0.75);
     transition: all .4s ease-in-out; 
+}
+
+@media screen and (min-width: 600px){
+    .button-container-box{
+        display: flex;
+        padding: 0px 20px;
+        /* display: grid; */
+        width: 100%;
+        place-content: center;
+    } 
+    .login-button{
+        
+        font-size: 20px;
+        width: 30%;
+        padding: 5px 20px;
+        text-align: center;
+        border: 3px solid black;
+    }
 }
