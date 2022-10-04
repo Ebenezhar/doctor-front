@@ -27,10 +27,11 @@ function DoctorLogin() {
             try {
                 console.log(values);
                 const login = await instance.post('/login/doctor', values);
-                console.log(login);
+                console.log("login", login);
                 if (login) {
                     localStorage.setItem('token', login.data.token);
                     localStorage.setItem('logged_person', login.data.name);
+                    localStorage.setItem('userId', login.data.id);
                 }
                 alert(login.data.message);
                 navigate('/portal/doctor')

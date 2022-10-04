@@ -1,28 +1,23 @@
-.home-body {
-    /* position: relative; */
+.token-body {
     width: 100%;
-    /* display: flex; */
-    /* place-content: center; */
     height: 100vh;
     margin-top: 50px;
-    /* background-color: rgb(147, 147, 222); */
-    /* margin-right: 10px; */
 }
 
-.home-body-header{
+.token-body-header{
     font-size: 25px;
     text-decoration: underline;
     padding: 10px;
     font-weight: bold;
 }
 
-.home-body-content{
+.token-body-content{
     padding: 20px;
 
 }
 
 @media screen and (min-width: 721px) {
-    .home-body {
+    .token-body {
         margin-left: 20px;        
     }
 

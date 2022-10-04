@@ -1,6 +1,7 @@
 const INIT_STATE = {
     status: '',
     data: [],
+    count: '',
 }
 
 export const userReducer = (state = INIT_STATE, action) => {
@@ -9,6 +10,16 @@ export const userReducer = (state = INIT_STATE, action) => {
             return {
                 ...state,
                 data: action.payload,
+            }
+        case 'BOOK_DOCTOR':
+            return {
+                ...state,
+                status: action.payload,
+            }
+        case 'DOCTOR-AVAIL':
+            return {
+                ...state,
+                count: action.payload,
             }
         default: return state;
     }

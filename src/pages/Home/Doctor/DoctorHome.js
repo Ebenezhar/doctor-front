@@ -1,23 +1,34 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { doctorActionCreators } from '../../../Redux/Action-creators'
 import UserListCard from '../../../components/Cards/UserCard/UserListCard'
 import { bindActionCreators } from "redux";
 import './index.css'
-import axios from 'axios';
+import instance from '../../../API/api';
+
 
 function DoctorHome() {
+    // const [patients, setPatients] = useState()
     const dispatch = useDispatch();
     const patientList = useSelector(state => state.doctorReducer);
+    // setPatients(patientList.data);
+    // console.log(patients);
     const { readPatients } = bindActionCreators(doctorActionCreators, dispatch);
+    const id = localStorage.getItem('userId');
 
     useEffect(() => {
-        fetchData();
+        fetchData(id);
     }, [])
-    const fetchData = async () => {
-        // const res = await axios.get(`http://localhost:3001/readpatients`)
-        // console.log(res);
-        readPatients();
+    let handleVisit = async (id) => {
+        console.log(id);
+        const visit = true;
+        const response = await instance.put(`/portal/handle-visit/${id}`, { visit })
+        console.log(response);
+        fetchData(id);
+        window.location.href = window.location.href;
+    }
+    const fetchData = async (id) => {
+        readPatients(id);
     }
     return (
         <div className='home-body'>
@@ -28,7 +39,7 @@ function DoctorHome() {
                 {
                     patientList.data.map((patient) => {
                         return (
-                            <UserListCard data={patient} />
+                            <UserListCard data={patient} handleVisit={handleVisit} />
                         )
                     })
                 }

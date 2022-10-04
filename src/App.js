@@ -11,6 +11,7 @@ import UserHome from "./pages/Home/User/UserHome";
 import DoctorAvailability from "./pages/Availability/DoctorAvailability";
 import DoctorPrescription from "./pages/Prescription/DoctorPrescription";
 import UserToken from "./pages/Token/UserToken";
+import Book from "./pages/Book/Book";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         </Route>
         <Route path='/portal/user' element={<UserPortal />} >
           <Route path='/portal/user' element={<UserHome />} />
+          <Route path='/portal/user/book/:id' element={<Book />} />
           <Route path='/portal/user/token' element={<UserToken />} />
         </Route>
       </Routes>

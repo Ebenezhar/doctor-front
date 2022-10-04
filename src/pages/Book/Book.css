@@ -1,0 +1,106 @@
+.book-body {
+    /* position: relative; */
+    width: 100%;
+    /* display: flex; */
+    /* place-content: center; */
+    height: 100vh;
+    margin-top: 50px;
+    /* background-color: rgb(147, 147, 222); */
+    /* margin-right: 10px; */
+}
+.book-body-header{
+    font-size: 25px;
+    text-decoration: underline;
+    padding: 10px;
+    font-weight: bold;
+}
+.book-info{
+    padding: 0px 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.book-body-content{
+    background-color: white;
+    padding: 20px;
+    display: grid;
+    flex-direction: column;
+    background-color: lightpink;
+
+}
+.label-name{
+    font-weight: bold;
+}
+.book-input-box {
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    place-content: center;
+    padding: 10px;
+}
+
+.value-box{
+    padding: 5px;
+}
+.submit-box{
+    margin: 0px 90px;
+    padding: 10px;
+}
+.availability-button{
+    margin: 5px 10px;
+    border-radius: 20px;
+    width:40%; 
+    padding: 3px;
+    font-size: 15px;
+    border: 3px solid black;
+    background-color: rgba(160, 225, 160, 0.849);
+    font-weight: bold;
+}
+
+.submit-button{
+    border-radius: 5px;
+    background-color: rgb(34 211 238);
+    border: 2px solid black;
+    padding: 4px 8px;
+    font-size:15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.submit-button:hover {
+    box-shadow: 0px 0px 15px -1px rgba(0,0,0,0.75);
+    border: 3px solid black;
+  }
+
+@media screen and (min-width: 721px) {
+    .book-body {
+        margin-left: 20px;        
+    }
+
+    .book-input-box {
+        display: flex;
+        flex-direction: row;
+        gap:5px;
+        place-content: start;
+        padding: 10px;
+    }
+    .label-name{
+        width: 40%;
+    }
+    .value-box{
+        width:30%
+    } 
+    .availability-button{
+        margin: 5px 5px;
+        width: auto;
+        padding: 3px;
+    }
+    .submit-box{
+        margin: 0px 0px;
+        padding: 10px;
+    }
+    .submit-button{
+        padding: 4px 10px;
+        font-size:18px;
+        font-weight: bold;
+    }
+}

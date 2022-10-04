@@ -24,12 +24,11 @@ function UserLogin() {
         onSubmit: async (values) => {
             console.log(values);
             try {
-                console.log(values);
                 const login = await instance.post('/login/user', values);
-                console.log(login);
                 if (login) {
                     localStorage.setItem('token', login.data.token);
                     localStorage.setItem('logged_person', login.data.name);
+                    localStorage.setItem('userId', login.data.id);
                 }
                 alert(login.data.message);
                 navigate('/portal/user')

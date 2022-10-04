@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import './Navbar.css'
 import { FaHospitalAlt } from "react-icons/fa"
+import { useNavigate } from 'react-router-dom'
 
 function Navbar() {
+    const navigate = useNavigate();
     const [bar, setbar] = useState("topnav")
     function myFunction() {
         var x = document.getElementById("myTopnav");
@@ -15,6 +17,10 @@ function Navbar() {
         console.log(bar);
     }
 
+    const handleLogout = () => {
+        window.localStorage.clear();
+        navigate('/');
+    }
 
     return (
         <div class="nav">
@@ -35,7 +41,7 @@ function Navbar() {
             <div class="nav-links">
                 <a href="" target="_blank">Home</a>
                 <a href="" target="_blank">About</a>
-                <a href="" target="_blank">Log Out</a>
+                <a><button onClick={() => handleLogout()}>Log Out</button></a>
                 <a href="" target="_blank">Contact</a>
             </div>
         </div>

@@ -9,15 +9,12 @@ import './index.css'
 function UserHome() {
     const dispatch = useDispatch();
     const doctorList = useSelector(state => state.userReducer);
-    console.log(doctorList);
     const { readDoctors } = bindActionCreators(userActionCreators, dispatch);
     useEffect(() => {
         fetchData();
     }, [])
     const fetchData = async () => {
-        readDoctors()
-        // const res = await axios.get(`http://localhost:3001/read/doctors`)
-        // console.log(res);
+        readDoctors();
     }
 
     return (
