@@ -2,6 +2,7 @@
 const INIT_STATE = {
     status: '',
     data: [],
+    date: []
 }
 
 export const doctorReducer = (state = INIT_STATE, action) => {
@@ -11,6 +12,13 @@ export const doctorReducer = (state = INIT_STATE, action) => {
                 ...state,
                 data: action.payload,
             }
+
+        case 'READ_DOCTOR':
+            return {
+                ...state,
+                date: action.payload,
+            }
         default: return state;
     }
 }
+

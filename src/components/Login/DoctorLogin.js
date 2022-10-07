@@ -23,11 +23,8 @@ function DoctorLogin() {
             return errors;
         },
         onSubmit: async (values) => {
-            console.log(values);
             try {
-                console.log(values);
                 const login = await instance.post('/login/doctor', values);
-                console.log("login", login);
                 if (login) {
                     localStorage.setItem('token', login.data.token);
                     localStorage.setItem('logged_person', login.data.name);
@@ -74,25 +71,15 @@ function DoctorLogin() {
                             placeholder="**********"
                         />
                         {formik.errors.password ? <span style={{ color: "red" }}> {formik.errors.password} </span> : null}
-                        {/* <button className="eye-logo"  >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-eye" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <circle cx="12" cy="12" r="2" />
-                            <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
-                        </svg>
-                    </button> */}
                         <div className="forgot-tag">
                             <p className='forgot-password'>
                                 <button
-                                // to="reset/forgotPassword"
                                 >
                                     {" "}
                                     Forgot password ?
                                 </button>
                             </p>
                         </div>
-                        {/* <input type="checkbox" value="lsRememberMe" id="rememberMe" /> <label for="rememberMe">Remember me</label> */}
-
                     </div>
                     <div className='button-container-box'>
                         <button className='login-button'>Login</button>

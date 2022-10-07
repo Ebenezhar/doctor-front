@@ -12,7 +12,7 @@ function DoctorHome() {
     const dispatch = useDispatch();
     const patientList = useSelector(state => state.doctorReducer);
     // setPatients(patientList.data);
-    // console.log(patients);
+    console.log(patientList.data);
     const { readPatients } = bindActionCreators(doctorActionCreators, dispatch);
     const id = localStorage.getItem('userId');
 
@@ -24,7 +24,8 @@ function DoctorHome() {
         const visit = true;
         const response = await instance.put(`/portal/handle-visit/${id}`, { visit })
         console.log(response);
-        fetchData(id);
+        readPatients(id)
+        // fetchData(id);
         window.location.href = window.location.href;
     }
     const fetchData = async (id) => {
@@ -37,11 +38,11 @@ function DoctorHome() {
             </div>
             <div className='home-body-content'>
                 {
-                    patientList.data.map((patient) => {
+                    patientList.data ? patientList.data.map((patient) => {
                         return (
                             <UserListCard data={patient} handleVisit={handleVisit} />
                         )
-                    })
+                    }) : null
                 }
             </div>
         </div>

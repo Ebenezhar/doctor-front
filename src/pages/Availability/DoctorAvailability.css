@@ -1,0 +1,61 @@
+.avail-body {
+    width: 100%;
+    height: 100vh;
+    margin-top: 50px;
+}
+.date-input-box{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    /* justify-content: space-between; */
+    /* width: 100%; */
+}
+.date-box{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.avail-body-header{
+    font-size: 25px;
+    text-decoration: underline;
+    padding: 10px;
+    font-weight: bold;
+}
+.comment{
+    width:50%
+}
+
+.add-date-button{
+    display: grid;
+    /* margin: 0px 50px; */
+    padding: 5px;
+    background-color: #81d1a9;
+    font-weight: bold;
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    width: auto;
+}
+
+.avail-body-content{
+    padding: 20px;
+
+}
+
+.leave-table-box{
+    padding: 5px 10px;
+}
+
+@media screen and (min-width: 721px) {
+    .avail-body {
+        margin-left: 20px;        
+    }
+    .comment{
+        width:90%
+    }
+    .add-date-button{
+        width: auto;   
+    }
+}

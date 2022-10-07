@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -24,14 +24,28 @@ function Book() {
     const index = doctorList.data.findIndex(obj => obj._id === id);
     const [date, setDate] = useState("");
     const [token, setToken] = useState(false);
+    const [naDate, setNaDate] = useState([]);
     const doc_id = doctorList.data[index]._id;
-    const checkAvailability = async () => {
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    const fetchData = async () => {
+        const userData = await instance.get(`portal/read-doctor/${doc_id}`)
+        console.log(userData.data.notAvailable);
+        setNaDate(userData.data.notAvailable)
+    }
+
+    const checkAvailability = async (date) => {
         try {
-            const response = await instance.post(`/portal/checkAvailability/${doc_id}`, { date });
-            alert(response.data.message);
-            if (response.status === 200) {
-                setToken(true);
+            if (date) {
+                const response = await instance.post(`/portal/checkAvailability/${doc_id}`, { date });
+                alert(response.data.message);
+                if (response.status === 200) {
+                    setToken(true);
+                }
             }
+
         } catch (error) {
             alert(error.response.data.message);
         }
@@ -78,6 +92,17 @@ function Book() {
                         <button className='availability-button' type={"button"} onClick={() => checkAvailability(date)}>Check availablity*</button>
                     </div>
                     <p className='book-info'>**Please check the Availability </p>
+                    <div className='available-date-content'>
+                        <label><h3>Will not available on:</h3></label>
+                        <ul className='date-list'>
+                            {
+                                naDate.map((date) => {
+                                    return <li>{`${date.notAvailableDate}`} </li>
+                                })
+                            }
+                        </ul>
+                    </div>
+
                     {
                         token ? <><div className='book-input-box'>
                             <label className='label-name' >Patient Name:</label>
@@ -120,7 +145,6 @@ function Book() {
                                 <button type={"submit"} className='submit-button'>Submit</button>
                             </div></> : null
                     }
-
                 </form>
             </div>
 
