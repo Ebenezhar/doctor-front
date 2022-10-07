@@ -13,10 +13,8 @@ function UserToken() {
         const result = await instance.delete(`/portal/delete-token/${id}`);
         console.log(result);
         fetchData();
-        // console.log(id);
     }
     const fetchData = async () => {
-        console.log(userId);
         const result = await instance.get(`/portal/read-tokens/${userId}`);
         setTokens(result.data);
     }
