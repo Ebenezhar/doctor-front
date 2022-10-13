@@ -64,7 +64,7 @@ function DoctorLogin() {
                         <label className='label-text'>Password</label>
                         <input
                             className='input-box'
-                            type={"text"}
+                            type={"password"}
                             name={"password"}
                             value={formik.values.password}
                             onChange={formik.handleChange}
@@ -75,7 +75,6 @@ function DoctorLogin() {
                             <p className='forgot-password'>
                                 <button
                                 >
-                                    {" "}
                                     Forgot password ?
                                 </button>
                             </p>

@@ -153,7 +153,7 @@ function DoctorRegister() {
                     <label className='label-text'>Password</label>
                     <input
                         className='input-box'
-                        type={"text"}
+                        type={"password"}
                         name={"password"}
                         onChange={formik.handleChange}
                         value={formik.values.password}
@@ -164,7 +164,7 @@ function DoctorRegister() {
                     <label className='label-text'>Verify Password</label>
                     <input
                         className='input-box'
-                        type={"text"}
+                        type={"password"}
                         name={"verpassword"}
                         onChange={formik.handleChange}
                         value={formik.values.verpassword}
