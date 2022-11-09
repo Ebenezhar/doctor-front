@@ -40,6 +40,7 @@ function Login() {
                     <p className='signup-head'>Don't have an account? </p>
                     <div className='signup-link'>
                         <Link className='link-tag' to='/DoctorRegister'> Sign up as doctor</Link>
+                        <br />
                         <Link className='link-tag' to='/UserRegister'> Sign up as User</Link>
                     </div>
 
