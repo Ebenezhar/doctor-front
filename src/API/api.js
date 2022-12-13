@@ -1,7 +1,11 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'https://doctor-appointment-booker.herokuapp.com',
+    // baseURL: 'https://doctor-appointment-booker.herokuapp.com',
+    baseURL: 'http://localhost:5000'
+
 })
+
+
 
 export default instance;

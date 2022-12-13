@@ -29,6 +29,7 @@ function DoctorHome() {
         window.location.href = window.location.href;
     }
     const fetchData = async (id) => {
+        console.log(id);
         readPatients(id);
     }
     return (

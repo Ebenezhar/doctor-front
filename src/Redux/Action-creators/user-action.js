@@ -4,6 +4,7 @@ export const readDoctors = () => {
     return async (dispatch) => {
         try {
             const result = await instance.get('/portal/read-doctors');
+            console.log(result);
             dispatch({ type: 'READ_DOCTORS', payload: result.data });
         } catch (error) {
             console.log(error);

@@ -5,6 +5,7 @@ export const readPatients = (id) => {
     return async (dispatch) => {
         try {
             const result = await instance.get(`portal/read-patients/${id}`);
+            console.log(result);
             // setTimeout(() => {
             //     window.location.href = window.location.href;
             // }, 1000);
