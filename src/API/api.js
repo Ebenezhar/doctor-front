@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'https://doctor-server-cyan.vercel.app',
+    baseURL: 'https://doctor-server-ruby.vercel.app',
     // baseURL: 'http://localhost:5000'
 
 })
